@@ -1,0 +1,25 @@
+<ng-container *ngIf="!isLoading; else elseTemplate">
+    <div class="fundo">
+        <section>
+            <div class="alert alert-danger text-center" *ngIf="error">
+                The given data was invalid.
+            </div>
+            <form class="auth-form" fxLayoutAlign="center center" fxLayout="column" #f="ngForm" (ngSubmit)="onSubmit(f)">
+                <div class="login">
+                     <div class="login-logo center">
+                         <img alt="Logo OpenHome" src="../../../../assets/images/openhome.png" width="220px">
+                         <span>Entre com seus dados para realizar o login</span>
+                     </div>
+                        <input type="email" class="w-100 h40" placeholder="Email" name="email" ngModel required >
+                        <input type="password" class="w-100 h40" placeholder="password" name="password"  ngModel required >
+                    <br>
+                    <button mat-raised-button color="primary" [disabled]="!f.valid">Submit</button>
+                </div>
+                
+            </form>
+        </section>
+    </div>
+</ng-container>
+<ng-template #elseTemplate>
+  <mat-spinner></mat-spinner>
+</ng-template>

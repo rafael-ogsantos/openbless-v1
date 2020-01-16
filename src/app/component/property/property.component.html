@@ -1,0 +1,22 @@
+<ng-container *ngIf="!isLoading; else spinner_con">
+  <ng-container *ngIf="!errorMessage; else error_con">
+    <div class="col-12 p-0">
+      <div class="col-12 col-md-6 p-0 float-left" style="overflow-y: scroll; height: 88vh;">
+          <div class="" *ngFor="let element of propertyData ">
+              {{element.id}}
+          </div>
+      </div>
+      <div class="col-12 col-md-6 p-0 float-right">
+        <div id="map_canvas" style="height: 88vh; width:100%;"></div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #error_con>
+      <div class="alert alert-warning">
+          {{ errorMessage }}
+      </div>
+  </ng-template>
+</ng-container>
+<ng-template #spinner_con>
+  <mat-spinner></mat-spinner>
+</ng-template>

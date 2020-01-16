@@ -1,0 +1,64 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+body {
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+}
+* {
+    font-family: 'Roboto' !important;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+.map_property_title {
+    color: red;
+}
+.map_property_price {
+    color: green;
+}
+mat-toolbar a:hover, mat-toolbar a:active {
+    color: lightgray !important;
+    text-decoration: underline !important;
+}
+
+/* Generic Mat CSS */
+mat-form-field {
+    width: 300px;
+}
+mat-sidenav-container, mat-sidenav, mat-sidenav-content {
+    height: 100%;
+}
+mat-sidenav {
+    width: 250px;
+}
+
+
+.card {
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    padding: 1em 2em;
+    height: 20rem;
+    margin-top: 2rem;
+}
+
+.colors-name{
+    color: #476776;
+}
+
+.mat-nav-list {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 60px;
+    z-index: 2;
+    max-width: 260px;
+    width: 100%;
+    background-color: #ffffff;
+    min-height: calc( 100vh - 60px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: all 100ms ease-out;
+    overflow-y: auto;
+}   

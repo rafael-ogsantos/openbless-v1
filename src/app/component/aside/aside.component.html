@@ -1,0 +1,14 @@
+<mat-nav-list [attr.data-open]="menu ? 'true' : ''">
+	<div class="menu-links">
+		<div class="nav-links" *ngFor="let link of links;">
+			<a mat-list-item [routerLink]="link.url" routerLinkActive="active">
+		      {{ link.title }}	      
+			</a>
+			<div class="sub-links" *ngIf="link.sublinks">
+				<a mat-list-item *ngFor="let sub of link.sublinks;" [routerLink]="sub.url" routerLinkActive="active">
+					{{ sub.title}}
+				</a>
+			</div>
+		</div>
+	</div>
+</mat-nav-list>

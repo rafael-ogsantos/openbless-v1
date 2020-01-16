@@ -1,0 +1,38 @@
+<mat-toolbar style="background-color: white; box-shadow: rgba(0, 0, 0, 0.2) 5px 5px 5px; background: rgb(255, 255, 255); flex-direction: row; box-sizing: border-box; display: flex;">
+ 
+  <div>
+    <a routerLink="/"><img src="../../../../assets/images/openhome-escura.png" alt="" width="200px"></a>
+  </div>
+  <div fxHide.xs fxFlex fxLayout fxLayoutAlign="end" fxLayoutGap="10px">
+    <a mat-raised-button routerLink="/dashboard" *ngIf="isAuth">DashBoard</a>
+    <a mat-raised-button routerLink="/sign-in" *ngIf="!isAuth">Entrar</a>
+    <a mat-raised-button routerLink="/sign-up" *ngIf="!isAuth">Cadastrar-se</a>
+    <button *ngIf="isAuth && isNotClient" color="warn" mat-raised-button [matMenuTriggerFor]="propertyMenu">
+      Imóveis
+    </button>
+    <mat-menu #propertyMenu="matMenu">
+      <a mat-menu-item routerLink="/properties">Imóveis</a>
+      <a mat-menu-item routerLink="/property-add">Adicionar imóveis</a>
+    </mat-menu>
+    
+    <div class="user" *ngIf="isAuth">
+       {{user}}
+    </div>
+    <button *ngIf="isAuth" class="myAccount" [matMenuTriggerFor]="appMenu">
+      {{ substr() }}
+    </button>
+    <mat-menu #appMenu="matMenu">
+      <a mat-menu-item *ngIf="isAuth" routerLink="/user">Perfil</a>
+      <a mat-menu-item *ngIf="isAuth" routerLink="/edit-profile">Editar Perfil</a>
+      <a mat-menu-item *ngIf="isClient" routerLink="/client-search-area">Área de pesquisa do cliente</a>
+      <a mat-menu-item *ngIf="isSuperAdmin" routerLink="/all-user">Todos os usuários</a>
+      <a mat-menu-item *ngIf="isSuperAdmin" routerLink="/add-user">Adicionar novo usuário</a>
+      <a mat-menu-item (click)="logout()" *ngIf="isAuth">Sair</a>
+    </mat-menu>
+  </div>
+  <div fxHide.gt-xs fxFlex fxLayout fxLayoutAlign="end" fxLayoutGap="10px">
+    <button mat-icon-button (click)="sideBarToggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>

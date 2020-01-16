@@ -1,0 +1,38 @@
+@media (min-width: 900px){
+    .container-dash {
+        width: 100%;
+        max-width: 100em;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        margin-bottom: 5rem;
+    }
+    * {
+        font-family: 'Roboto' !important;
+    }
+}
+
+.mat-style mat-select {
+    border: 1px solid #ccc;
+    width: 15rem;
+    height: 50px;
+    border-radius: 50px;
+    padding: 10px;
+}
+
+.imoveis span + p {
+    color: rgb(14, 204, 14);
+    font-size: 25px;
+}
+
+.franqueado span + p {
+    color: rgb(14, 204, 14);
+    font-size: 25px;
+}
+
+.imoveis {
+    margin: .5rem 0;
+}
+
+.franqueado {
+    margin: .5rem 0;
+}

@@ -1,0 +1,22 @@
+@import '../../../../assets/scss/config.scss';
+
+main {
+	display: flex;
+	justify-content: between;
+
+	get-sidebar {
+		flex: 0 0 auto;
+	}
+
+	.conteudo {
+		flex: 1 1 0;
+	}
+}
+
+.background {
+	background-color: color('background');
+	position: fixed;
+	top: 0; bottom: 0;
+	left: 0; right: 0;
+	z-index: -1;
+}

@@ -1,0 +1,15 @@
+$cores: (
+	'white': #ffffff,
+	'background': #f2f3f8,
+	'branco': #f9fcf5,
+	'azul': #476776,
+	'verde': #7ed320,
+	'preto': #192d34,
+	'black': #000000
+);
+
+@function color( $name ) {	
+	@if map-has-key($cores,$name) { @return map-get($cores,$name); }
+	@warn "Color Error: Unknown variable $cores.";
+	@return null;
+}

@@ -1,0 +1,73 @@
+
+  <ng-container *ngIf="!isLoading; else elseTemplate">
+    <section *ngIf="role">
+      <div>
+        <h3 class="text-center" style="margin: 2rem 0;">A função do usuário é <strong>{{ role }}</strong></h3>
+      </div>
+     
+    </section>
+    <section class="container-dash">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card" style="margin-top: 0;">
+            <div class="row">
+              <div class="col-md-7">
+                <span class="colors-name">Visualização</span>
+                <div style="display: block">
+                  <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+                    [legend]="barChartLegend" [chartType]="barChartType">
+                  </canvas>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <span class="colors-name">Nome do imóvel</span>
+              </div>
+            </div>
+            <!-- <button mat-button mat-raised-button color="primary" (click)="randomize()">Update</button> -->
+          </div>
+        </div>
+  
+        <div class="col-md-4">
+          <div class="card" style="margin-top: 0;">
+            <span class="colors-name">Valor a receber</span>
+            <div class="mat-style" style="display: flex; align-items: center; margin-top: 2rem;">
+              <span style="margin-right: 20px">Periodo: </span>
+              <mat-select name='valorp' required placeholder="Selecione o período" [(ngModel)]="valorP">
+                <mat-option *ngFor="let p of options" [value]="p.value">
+                  {{p.title}}
+                </mat-option>
+              </mat-select>
+            </div>
+  
+            <div class="imoveis"><span> {{boxes.valor.select.config.title}} </span>
+              <p>R$: <span id="valorImoveis">{{ boxes.valor.calc.imoveis.valor * boxes.valor.select.config.selected}}</span></p>
+            </div>
+            <div class="franqueado"><span>De franqueados</span>
+              <p>R$: <span id="valorFranq">{{ boxes.valor.calc.franqueados.valor * boxes.valor.select.config.selected}}</span></p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-md-12">
+          <div class="card"><span class="colors-name">Mensagens</span>
+            <ul class="mensagens">
+              <li><span>Mariane Moura</span>
+                <p>Trabalhando com a OpenHome em um ótimo aplicativo novo! Quer participar?</p>
+              </li>
+              <li><span>Rafael oliveira</span>
+                <p>Trabalhando com a OpenHome em um ótimo aplicativo novo! Quer participar?</p>
+              </li>
+              <li><span>Mauri</span>
+                <p>Trabalhando com a OpenHome em um ótimo aplicativo novo! Quer participar?</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </ng-container>
+
+
+<ng-template #elseTemplate>
+  <mat-spinner></mat-spinner>
+</ng-template> 
