@@ -1,0 +1,34 @@
+<app-layout>
+  <section class="container-global">
+    <h2 class="colors-name">Inicio</h2>
+    <div class="card" style="height: auto;">
+      <form class="auth-form" fxLayout="column" #f="ngForm" #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <div class="box">
+          <div class="header">
+            <h5 class="colors-name">Temporada / Aluguel / Venda </h5>
+          </div>
+
+          <div class="inputForm w-30">
+            <mat-select name="setor" ngModel placeholder="Selecione a negociação" required>
+              <mat-option *ngFor="let setor of setores" [value]="setor">
+                {{ setor }}
+              </mat-option>
+            </mat-select>
+          </div>
+
+          <div class="inputForm">
+            <input name="assunto" ngModel required type="text">
+            <label for="">Assunto</label>
+          </div>
+
+          <div class="inputForm">
+            <textarea name="mensagem" ngModel required type="text" rows="500"></textarea>
+            <label for="">Mensagem</label>
+          </div>
+        </div>
+
+         <button type="submit">Enviar</button>
+      </form>
+    </div>
+  </section>
+</app-layout>
