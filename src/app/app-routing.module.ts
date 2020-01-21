@@ -21,13 +21,63 @@ import { ClientSearchComponent } from './component/client/client-search/client-s
 import { PropertyAddComponent } from './component/property/property-add/property-add.component';
 
 const routes: Routes = [
+
+
   {
     path: '',
-    redirectTo: 'dashboard',
-    pathMatch: 'full',
+    redirectTo: '/dashboard',
+    pathMatch: 'full'
+  },
+
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
     canActivate: [AuthGuardService]
   },
-  
+
+  // Login page
+  {
+    path: 'sign-in',
+    component: SignInComponent,
+    canActivate: [UnAuthGuardService]
+  },
+
+  // Redireciona /imoveis para /imoveis/cadastrar
+  {
+    path: 'imoveis',
+    redirectTo: '/imoveis/cadastrar',
+    pathMatch: 'full'
+  },
+
+  // Cadastrar Imovéis
+  {
+    path: 'imoveis/cadastrar',
+    component: PropertyAddComponent,
+    data: { title: 'Cadastrar Imovéis' },
+    canActivate: [AuthGuardService]
+  },
+
+  // Buscar Imovéis
+  {
+    path: 'imoveis/buscar',
+    component: PropertyComponent,
+    data: { title: 'Buscar Imovéis' },
+    canActivate: [AuthGuardService]
+  },
+
+  // Redireciona /usuarios para /usuarios/cadastrar
+
+
+
+  // Redireciona /condominios para /condominios/cadastrar
+
+  //   {
+  //     path: '',
+  //     redirectTo: 'dashboard',
+  //     pathMatch: 'full',
+  //     canActivate: [AuthGuardService]
+  //   },
+
   {
     path: 'sign-in',
     component: SignInComponent,
@@ -38,11 +88,11 @@ const routes: Routes = [
     component: SignUpComponent,
     canActivate: [UnAuthGuardService]
   },
-  {
-    path: 'dashboard',
-    component: DashboardComponent,
-    canActivate: [AuthGuardService]
-  },
+  //   {
+  //     path: 'dashboard',
+  //     component: DashboardComponent,
+  //     canActivate: [AuthGuardService]
+  //   },
   {
     path: 'user',
     component: UserComponent,
@@ -63,36 +113,52 @@ const routes: Routes = [
     component: AllUserComponent,
     canActivate: [AuthGuardService, SuperAdminRoleGuardService]
   },
-  {
-    path: "client-search-area",
-    component: ClientSearchComponent,
-    canActivate: [AuthGuardService, ClientRoleGuardService]
-  },
-  {
-    path: "properties",
-    component: PropertyComponent,
-    canActivate: [AuthGuardService]
-  },
-  {
-    path: "property-add",
-    component: PropertyAddComponent,
-    canActivate: [AuthGuardService, AdminFranchiseGuardService]
-  },
-  {
-    path: "property-edit/:id",
-    component: PropertyEditComponent,
-    canActivate: [AuthGuardService, AdminFranchiseGuardService]
-  },
-  {
-    path: "property-delete/:id",
-    component: PropertyEditComponent,
-    canActivate: [AuthGuardService, AdminFranchiseGuardService]
-  },
-  {
-    path: "**",
-    redirectTo: "home",
-    pathMatch: "full"
-  }
+  //   {
+  //     path: "client-search-area",
+  //     component: ClientSearchComponent,
+  //     canActivate: [AuthGuardService, ClientRoleGuardService]
+  //   },
+  //   {
+  //     path: "properties",
+  //     redirectTo: 'imoveis/cadastrar',
+  //     pathMatch: 'full',
+  //     canActivate: [AuthGuardService]
+  //   },
+
+
+  // // Cadastrar Imovéis
+  // {
+  //     path: 'imoveis/cadastrar',
+  //     component: PropertyAddComponent,
+  //     data: { title: 'Cadastrar Imovéis' }
+  // },
+
+  // {
+  //   path: 'imoveis/buscar',
+  //   component: PropertyEditComponent,
+  //   data: { title: 'Buscar Imovéis' },
+  //   canActivate: [AuthGuardService, AdminFranchiseGuardService]
+  // },
+  //   {
+  //     path: "property-add",
+  //     component: PropertyAddComponent,
+  //     canActivate: [AuthGuardService, AdminFranchiseGuardService]
+  //   },
+  //   {
+  //     path: "property-edit/:id",
+  //     component: PropertyEditComponent,
+  //     canActivate: [AuthGuardService, AdminFranchiseGuardService]
+  //   },
+  //   {
+  //     path: "property-delete/:id",
+  //     component: PropertyEditComponent,
+  //     canActivate: [AuthGuardService, AdminFranchiseGuardService]
+  //   },
+  //   {
+  //     path: "**",
+  //     redirectTo: "home",
+  //     pathMatch: "full"
+  //   }
 ];
 
 @NgModule({

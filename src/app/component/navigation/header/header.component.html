@@ -1,4 +1,19 @@
-<mat-toolbar style="background-color: white; box-shadow: rgba(0, 0, 0, 0.2) 5px 5px 5px; background: rgb(255, 255, 255); flex-direction: row; box-sizing: border-box; display: flex;">
+<mat-toolbar style="
+ box-shadow: rgba(0, 0, 0, 0.2) 5px 5px 5px; background: rgb(255, 255, 255); 
+position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+ 
+  
+  height: 60px;
+  z-index: 4;
+  padding: 0 1rem;
+
+">
  
   <div>
     <a routerLink="/"><img src="../../../../assets/images/openhome-escura.png" alt="" width="200px"></a>
@@ -18,8 +33,9 @@
     <div class="user" *ngIf="isAuth">
        {{user}}
     </div>
-    <button *ngIf="isAuth" class="myAccount" [matMenuTriggerFor]="appMenu">
-      {{ substr() }}
+   
+    <button *ngIf="isAuth" class="myAccount" id="appMenu" style="text-transform: uppercase;" [matMenuTriggerFor]="appMenu">
+      
     </button>
     <mat-menu #appMenu="matMenu">
       <a mat-menu-item *ngIf="isAuth" routerLink="/user">Perfil</a>

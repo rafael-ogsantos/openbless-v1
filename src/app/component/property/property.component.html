@@ -1,9 +1,11 @@
+
 <ng-container *ngIf="!isLoading; else spinner_con">
   <ng-container *ngIf="!errorMessage; else error_con">
     <div class="col-12 p-0">
       <div class="col-12 col-md-6 p-0 float-left" style="overflow-y: scroll; height: 88vh;">
           <div class="" *ngFor="let element of propertyData ">
               {{element.id}}
+              {{element.title}}
           </div>
       </div>
       <div class="col-12 col-md-6 p-0 float-right">

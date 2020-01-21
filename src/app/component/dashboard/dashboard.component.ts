@@ -4,6 +4,7 @@ import { SiteUIService } from 'src/app/service/site/site-ui-service';
 import { Subscription } from 'rxjs';
 import { Label } from 'ng2-charts';
 import { ChartType, ChartOptions, ChartDataSets } from 'chart.js';
+import { subscribeOn } from 'rxjs/operators';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,7 +15,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   options = [
     { title: '7 dias', value: 7, selected: true },
     { title: '15 dias', value: 15 }
-]
+];
   role: string;
   isLoading: boolean = false;
   loadingSubs: Subscription;
@@ -82,8 +83,8 @@ private getCalc() {
 }
   
   ngOnInit() {
-    console.log(this.valorP);
-    this.periodo = this._siteUiService.getPeriodo();
+
+    // this.periodo = this._siteUiService.getPeriodo();
     this._siteUiService.isLoading.next(true);
     this.loadingSubs = this._siteUiService.isLoading.subscribe(
       state => {
@@ -95,6 +96,7 @@ private getCalc() {
         // console.log("User Role = ",userData.data.roles[0].id);
         this._siteUiService.isLoading.next(false);
         this.role = userData.data.role_name;
+        
       }
     )
   }

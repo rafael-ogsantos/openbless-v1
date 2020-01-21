@@ -46,7 +46,8 @@ mat-sidenav {
 }
 
 .colors-name{
-    color: #476776;
+    color: #476776 !important;
+    margin: 16px 0;
 }
 
 .mat-nav-list {

@@ -1,3 +1,4 @@
+import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -14,7 +15,7 @@ import { SignInComponent } from './component/auth/sign-in/sign-in.component';
 
 import { HeaderComponent } from './component/navigation/header/header.component';
 import { SideBarComponent } from './component/navigation/side-bar/side-bar.component';
-import { DashboardComponent } from './component/dashboard/dashboard.component';
+
 import { UserComponent } from './component/user/user.component';
 import { AddUserComponent } from './component/user/add-user/add-user.component';
 import { EditUserComponent } from './component/user/edit-user/edit-user.component';
@@ -26,7 +27,7 @@ import { PropertyEditComponent } from './component/property/property-edit/proper
 import { ChartsModule } from 'ng2-charts';
 import { AsideComponent } from './component/aside/aside.component';
 import { LayoutComponent } from './component/navigation/layout/layout.component';
-
+import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,9 @@ import { LayoutComponent } from './component/navigation/layout/layout.component'
     HttpClientModule,
     ChartsModule
   ],
-  providers: [],
+  providers: [
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

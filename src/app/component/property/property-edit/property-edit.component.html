@@ -1,4 +1,5 @@
-<ng-container *ngIf="!isLoading; else spinner_con">
+<app-layout>
+<!-- <ng-container *ngIf="!isLoading; else spinner_con"> -->
   <section>
     <div class="alert alert-danger text-center" *ngIf="error">
         The given data was invalid.
@@ -38,7 +39,8 @@
         <button mat-raised-button color="primary" [disabled]="!f.valid">Submit</button>
     </form>
 </section>
-</ng-container>
+<!-- </ng-container>
 <ng-template #spinner_con>
   <mat-spinner></mat-spinner>
-</ng-template>
+</ng-template> -->
+</app-layout>

@@ -15,6 +15,34 @@ import { AuthService } from 'src/app/service/auth/auth-service';
 })
 export class PropertyAddComponent implements OnInit, OnDestroy {
 
+  situacao = [
+      "Venda",
+      "Lançamento",
+      "Na planta",
+      "Novo"
+  ];
+
+  garagem = [
+    "Sim",
+    "Não"
+  ];
+
+  tipo = [
+    "Apartamento",
+    "Casa",
+    "Sobrado",
+    "Loft",
+    "Loteamento"
+  ];
+
+  negociacao = [
+    "Venda",
+    "Temporada",
+    "Aluguel",
+    "Venda/Temporada",
+    "Venda/Aluguel"
+  ]
+
   error: string = "";
   isLoading: boolean = false;
   loadingSubs: Subscription;
@@ -41,8 +69,8 @@ export class PropertyAddComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(form: NgForm) {
-    // this._siteUiService.isLoading.next(true);
-    // console.log(form.value);
+    this._siteUiService.isLoading.next(true);
+    console.log(form.value);
     this._propertyService.addProperty(form.value).subscribe(
       data => {
         // console.log("new user data (from signup component) = "+ data);
@@ -63,7 +91,7 @@ export class PropertyAddComponent implements OnInit, OnDestroy {
       data=>{
         // console.log("third done");
         this._siteUiService.isLoading.next(false);
-        this._router.navigate(['/properties']);
+        this._router.navigate(['/imoveis']);
     });
   }
 

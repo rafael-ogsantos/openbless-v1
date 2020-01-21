@@ -1,270 +1,208 @@
-<ng-container *ngIf="!isLoading; else elseTemplate">
+<app-layout>
+  <!-- <ng-container *ngIf="!isLoading; else elseTemplate"> -->
+
   <section>
     <div class="alert alert-danger text-center" *ngIf="error">
       The given data was invalid.
     </div>
-    <form class="auth-form" fxLayoutAlign="center center" fxLayout="column" #f="ngForm" (ngSubmit)="onSubmit(f)">
-      <input type="hidden" name="userId" [(ngModel)]="userId">
-      <div class="row">
-        <div  class="col-md-3 ">
-          <div class="inputForm">
-              <input name="title" ngmodel
-              placeholder="title" required="" type="text" required name="title">
+
+    <div class="container">
+      <div class="card" style="height: auto;">
+        <form class="auth-form" fxLayoutAlign="center center" fxLayout="column" #f="ngForm" (ngSubmit)="onSubmit(f)">
+          <div class="box">
+            <div class="header">
+              <h5 class="colors-name">Temporada / Aluguel / Venda </h5>
             </div>
-        </div>
-        <div  class="col-md-3 ">
-          <div class="inputFormTipo">
-            <mat-select class="mat-select " name="negociacao" ngmodel placeholder="Selecione a negociação" required
-              
-              aria-label="Selecione a negociação" aria-required="true" aria-disabled="false" aria-invalid="false"
-              aria-multiselectable="false">
-              <div class="mat-select-trigger" aria-hidden="true" cdk-overlay-origin="">
-                <div class="mat-select-value" ng-reflect-ng-switch="true">
-                  <!--bindings={
-            "ng-reflect-ng-switch-case": "true"
-          }--><span class="mat-select-placeholder ng-tns-c11-4 ng-star-inserted">Selecione a negociação</span>
-                  <!--bindings={
-            "ng-reflect-ng-switch-case": "false"
-          }-->
-                </div>
-                <div class="mat-select-arrow-wrapper">
-                  <div class="mat-select-arrow"></div>
+            <input type="hidden" name="userId" [(ngModel)]="userId">
+    
+            <div class="row">
+              <div class="col-md-3 ">
+                <div class="inputForm">
+                  <input name="title" ngModel placeholder="title" required type="text">
                 </div>
               </div>
-              <!--bindings={
-            "ng-reflect-origin": "[object Object]",
-            "ng-reflect-positions": "[object Object],[object Object",
-            "ng-reflect-offset-y": "0",
-            "ng-reflect-min-width": null,
-            "ng-reflect-backdrop-class": "cdk-overlay-transparent-backdr",
-            "ng-reflect-scroll-strategy": "[object Object]",
-            "ng-reflect-open": "false",
-            "ng-reflect-has-backdrop": "",
-            "ng-reflect-lock-position": ""
-          }-->
-            </mat-select>
-          </div>
-        </div>
-        <div _ngcontent-wog-c15="" class="col-md-3 ">
-          <div _ngcontent-wog-c15="" class="inputFormTipo">
-            <mat-select _ngcontent-wog-c15=""
-              class="mat-select ng-tns-c11-5 mat-select-required mat-select-empty ng-untouched ng-pristine ng-invalid"
-              name="tipo" ngmodel="" placeholder="Selecione o tipo" required="" role="listbox" ng-reflect-required=""
-              ng-reflect-name="tipo" ng-reflect-model="" ng-reflect-placeholder="Selecione o tipo" id="mat-select-2"
-              tabindex="0" aria-label="Selecione o tipo" aria-required="true" aria-disabled="false" aria-invalid="false"
-              aria-multiselectable="false">
-              <div class="mat-select-trigger" aria-hidden="true" cdk-overlay-origin="">
-                <div class="mat-select-value" ng-reflect-ng-switch="true">
-                  <!--bindings={
-            "ng-reflect-ng-switch-case": "true"
-          }--><span class="mat-select-placeholder ng-tns-c11-5 ng-star-inserted">Selecione o tipo</span>
-                  <!--bindings={
-            "ng-reflect-ng-switch-case": "false"
-          }-->
-                </div>
-                <div class="mat-select-arrow-wrapper">
-                  <div class="mat-select-arrow"></div>
+    
+              <div class="col-md-3 ">
+                <div class="inputFormTipo">
+                  <mat-select name="negociacao" ngModel placeholder="Selecione a negociação" required>
+                    <mat-option *ngFor="let neg of negociacao" [value]="neg">
+                      {{neg}}
+                    </mat-option>
+                  </mat-select>
                 </div>
               </div>
-              <!--bindings={
-            "ng-reflect-origin": "[object Object]",
-            "ng-reflect-positions": "[object Object],[object Object",
-            "ng-reflect-offset-y": "0",
-            "ng-reflect-min-width": null,
-            "ng-reflect-backdrop-class": "cdk-overlay-transparent-backdr",
-            "ng-reflect-scroll-strategy": "[object Object]",
-            "ng-reflect-open": "false",
-            "ng-reflect-has-backdrop": "",
-            "ng-reflect-lock-position": ""
-          }-->
-            </mat-select>
-          </div>
-        </div>
-        <div _ngcontent-wog-c15="" class="col-md-3 ">
-          <div _ngcontent-wog-c15="" class="inputForm"><input _ngcontent-wog-c15="" name="areap" ngmodel="" required=""
-              type="text" ng-reflect-required="" ng-reflect-name="areap" ng-reflect-model=""
-              class="ng-untouched ng-pristine ng-invalid"><label _ngcontent-wog-c15=""
-              style="background-color: white; padding: 1px">Area privativa*</label></div>
-        </div>
-        <div _ngcontent-wog-c15="" class="col-md-3">
-          <div _ngcontent-wog-c15="" class="inputForm "><input _ngcontent-wog-c15="" name="areat" ngmodel="" required=""
-              type="text" ng-reflect-required="" ng-reflect-name="areat" ng-reflect-model=""
-              class="ng-untouched ng-pristine ng-invalid"><label _ngcontent-wog-c15=""
-              style="background-color: white; padding: 1px">Area total*</label></div>
-        </div>
-        <div _ngcontent-wog-c15="" class="col-md-3">
-          <div _ngcontent-wog-c15="" class="inputForm "><input _ngcontent-wog-c15="" name="numero_quartos" ngmodel=""
-              required="" type="text" ng-reflect-required="" ng-reflect-name="numero_quartos" ng-reflect-model=""
-              class="ng-untouched ng-pristine ng-invalid"><label _ngcontent-wog-c15=""
-              style="background-color: white; padding: 1px">Quartos*</label></div>
-        </div>
-        <div _ngcontent-wog-c15="" class="col-md-3">
-          <div _ngcontent-wog-c15="" class="inputForm "><input _ngcontent-wog-c15="" name="iptu" ngmodel="" required=""
-              type="text" ng-reflect-required="" ng-reflect-name="iptu" ng-reflect-model=""
-              class="ng-untouched ng-pristine ng-invalid"><label _ngcontent-wog-c15=""
-              style="background-color: white; padding: 1px">IPTU*</label></div>
-        </div>
-        <div _ngcontent-wog-c15="" class="col-md-3 ">
-          <div _ngcontent-wog-c15="" class="inputForm">
-            <mat-select _ngcontent-wog-c15=""
-              class="mat-select ng-tns-c11-6 mat-select-required mat-select-empty ng-untouched ng-pristine ng-invalid"
-              id="garagem" name="garagem" ngmodel="" placeholder="Tem garagem?" required="" role="listbox"
-              ng-reflect-required="" ng-reflect-name="garagem" ng-reflect-model="" ng-reflect-placeholder="Tem garagem?"
-              ng-reflect-id="garagem" tabindex="0" aria-label="Tem garagem?" aria-required="true" aria-disabled="false"
-              aria-invalid="false" aria-multiselectable="false">
-              <div class="mat-select-trigger" aria-hidden="true" cdk-overlay-origin="">
-                <div class="mat-select-value" ng-reflect-ng-switch="true">
-                  <!--bindings={
-            "ng-reflect-ng-switch-case": "true"
-          }--><span class="mat-select-placeholder ng-tns-c11-6 ng-star-inserted">Tem garagem?</span>
-                  <!--bindings={
-            "ng-reflect-ng-switch-case": "false"
-          }-->
-                </div>
-                <div class="mat-select-arrow-wrapper">
-                  <div class="mat-select-arrow"></div>
+    
+              <div class="col-md-3 ">
+                <div class="inputFormTipo">
+                  <mat-select name="tipo" ngModel placeholder="Selecione o tipo" required>
+                    <mat-option *ngFor="let tip of tipo" [value]="tip">
+                      {{tip}}
+                    </mat-option>
+                  </mat-select>
                 </div>
               </div>
-              <!--bindings={
-            "ng-reflect-origin": "[object Object]",
-            "ng-reflect-positions": "[object Object],[object Object",
-            "ng-reflect-offset-y": "0",
-            "ng-reflect-min-width": null,
-            "ng-reflect-backdrop-class": "cdk-overlay-transparent-backdr",
-            "ng-reflect-scroll-strategy": "[object Object]",
-            "ng-reflect-open": "false",
-            "ng-reflect-has-backdrop": "",
-            "ng-reflect-lock-position": ""
-          }-->
-            </mat-select>
-          </div>
-        </div>
-        <!---->
-        <div _ngcontent-wog-c15="" class="col-md-3">
-          <div _ngcontent-wog-c15="" class="inputForm "><input _ngcontent-wog-c15="" name="banheiros" ngmodel=""
-              required="" type="text" ng-reflect-required="" ng-reflect-name="banheiros" ng-reflect-model=""
-              class="ng-untouched ng-pristine ng-invalid"><label _ngcontent-wog-c15=""
-              style="background-color: white; padding: 1px">Banheiros*</label></div>
-        </div>
-        <div _ngcontent-wog-c15="" class="col-md-3">
-          <div _ngcontent-wog-c15="" class="inputForm">
-            <mat-select _ngcontent-wog-c15=""
-              class="mat-select ng-tns-c11-7 mat-select-required mat-select-empty ng-untouched ng-pristine ng-invalid"
-              id="garagem" name="situacao" ngmodel="" placeholder="Situação do imovel" required="" role="listbox"
-              ng-reflect-required="" ng-reflect-name="situacao" ng-reflect-model=""
-              ng-reflect-placeholder="Situação do imovel" ng-reflect-id="garagem" tabindex="0"
-              aria-label="Situação do imovel" aria-required="true" aria-disabled="false" aria-invalid="false"
-              aria-multiselectable="false">
-              <div class="mat-select-trigger" aria-hidden="true" cdk-overlay-origin="">
-                <div class="mat-select-value" ng-reflect-ng-switch="true">
-                  <!--bindings={
-            "ng-reflect-ng-switch-case": "true"
-          }--><span class="mat-select-placeholder ng-tns-c11-7 ng-star-inserted">Situação do imovel</span>
-                  <!--bindings={
-            "ng-reflect-ng-switch-case": "false"
-          }-->
-                </div>
-                <div class="mat-select-arrow-wrapper">
-                  <div class="mat-select-arrow"></div>
+    
+              <div class="col-md-3 ">
+                <div class="inputForm">
+                  <input name="areap" ngModel required id="areaP" type="text">
+                  <label class="label" for="areaP">Area privativa*</label>
                 </div>
               </div>
-              <!--bindings={
-            "ng-reflect-origin": "[object Object]",
-            "ng-reflect-positions": "[object Object],[object Object",
-            "ng-reflect-offset-y": "0",
-            "ng-reflect-min-width": null,
-            "ng-reflect-backdrop-class": "cdk-overlay-transparent-backdr",
-            "ng-reflect-scroll-strategy": "[object Object]",
-            "ng-reflect-open": "false",
-            "ng-reflect-has-backdrop": "",
-            "ng-reflect-lock-position": ""
-          }-->
-            </mat-select>
+    
+              <div class="col-md-3">
+                <div class="inputForm">
+                  <input name="areat" ngModel required id="areaT" type="text">
+                  <label class="label" for="areaT">Area total*</label>
+                </div>
+              </div>
+    
+              <div class="col-md-3">
+                <div class="inputForm">
+                  <input name="numero_quartos" ngModel required type="text">
+                  <label class="label">Quartos*</label>
+                </div>
+              </div>
+    
+              <div class="col-md-3">
+                <div class="inputForm">
+                  <input name="iptu" ngModel required type="text">
+                  <label class="label">IPTU*</label>
+                </div>
+              </div>
+    
+              <div class="col-md-3 ">
+                <div class="inputForm">
+                  <mat-select id="garagem" name="garagem" ngModel placeholder="Tem garagem?" required>
+                    <mat-option *ngFor="let gar of garagem" [value]="gar">
+                      {{gar}}
+                    </mat-option>
+                  </mat-select>
+                </div>
+              </div>
+    
+              <div class="col-md-3">
+                <div class="inputForm">
+                  <input name="banheiros" ngModel required type="text">
+                  <label class="label">Banheiros*</label>
+                </div>
+              </div>
+    
+              <div class="col-md-3">
+                <div class="inputForm">
+                  <mat-select id="garagem" name="situacao" ngModel placeholder="Situação do imovel" required>
+                    <mat-option *ngFor="let sit of situacao" [value]="sit">
+                      {{sit}}
+                    </mat-option>
+                  </mat-select>
+                </div>
+              </div>
+    
+              <div class="col-md-3">
+                <div class="inputForm ">
+                  <input name="valor_cond" ngModel required id="valorC" type="text">
+                  <label class="label" for="valorC">Valor de Condominio*</label>
+                </div>
+              </div>
+    
+              <div class="col-md-3">
+                <div class="inputForm ">
+                  <input name="valor_tot" ngModel required type="text">
+                  <label class="label">Valor total*</label>
+                </div>
+              </div>
+    
+              <div class="col-md-3">
+                <div class="inputForm">
+                  <input name="comissao" ngModel required type="text">
+                  <label class="label">Comissao*</label>
+                </div>
+              </div>
+    
+              <div class="col-md-3">
+                <div class="inputForm ">
+                  <input name="cep" ngModel required type="text">
+                  <label class="label">Cep*</label>
+                </div>
+              </div>
+    
+              <div class="col-md-3">
+                <div class="inputForm">
+                  <input name="endereco" ngModel required type="text">
+                  <label class="label">Endereco*</label>
+                </div>
+              </div>
+    
+              <div class="col-md-3">
+                <div class="inputForm">
+                  <input name="bairro" ngModel required type="text">
+                  <label class="label">Bairro*</label>
+                </div>
+              </div>
+    
+    
+              <div class="col-md-3">
+                <div class="inputForm ">
+                  <input name="numero" ngModel required type="text">
+                  <label class="label">Numero*</label>
+                </div>
+              </div>
+    
+              <div class="col-md-3">
+                <div class="inputForm ">
+                  <input name="cidade" ngModel required type="text">
+                  <label class="label">Cidade*</label>
+                </div>
+              </div>
+    
+              <div class="col-md-3">
+                <div class="inputForm ">
+                  <input name="estado" ngModel required type="text">
+                  <label class="label">Estado*</label>
+                </div>
+              </div>
+    
+              <div class="col-md-3">
+                <div class="inputForm ">
+                  <input name="description" ngModel required type="text">
+                  <label class="label">Descrição*</label>
+                </div>
+              </div>
+    
+              <div class="col-md-3">
+                <div class="inputForm ">
+                  <input name="price" ngModel required type="number">
+                  <label class="label">price*</label>
+                </div>
+              </div>
+    
+              <div class="col-md-3">
+                <div class="inputForm">
+                  <input name="latitude" ngModel required type="text">
+                  <label class="label">Latitude*</label>
+                </div>
+              </div>
+    
+              <div class="col-md-3">
+                <div class="inputForm ">
+                  <input name="longitude" ngModel required type="text">
+                  <label class="label">Longitude*</label>
+                </div>
+              </div>
+            </div>
+            <div>
+              <label for="image">Image</label>
+              <input accept="image/*" id="image" name="image" ngModel placeholder="image" type="file" (change)="imageUploaded($event.target.files)">
+            </div>
+            <br>
           </div>
-        </div>
-        <div _ngcontent-wog-c15="" class="col-md-3">
-          <div _ngcontent-wog-c15="" class="inputForm "><input _ngcontent-wog-c15="" name="valor_cond" ngmodel=""
-              required="" type="text" ng-reflect-required="" ng-reflect-name="valor_cond" ng-reflect-model=""
-              class="ng-untouched ng-pristine ng-invalid"><label _ngcontent-wog-c15=""
-              style="background-color: white; padding: 1px">Valor de Condominio*</label></div>
-        </div>
-        <div _ngcontent-wog-c15="" class="col-md-3">
-          <div _ngcontent-wog-c15="" class="inputForm "><input _ngcontent-wog-c15="" name="valor_tot" ngmodel=""
-              required="" type="text" ng-reflect-required="" ng-reflect-name="valor_tot" ng-reflect-model=""
-              class="ng-untouched ng-pristine ng-invalid"><label _ngcontent-wog-c15=""
-              style="background-color: white; padding: 1px">Valor total*</label></div>
-        </div>
-        <div _ngcontent-wog-c15="" class="col-md-3">
-          <div _ngcontent-wog-c15="" class="inputForm "><input _ngcontent-wog-c15="" name="comissao" ngmodel=""
-              required="" type="text" ng-reflect-required="" ng-reflect-name="comissao" ng-reflect-model=""
-              class="ng-untouched ng-pristine ng-invalid"><label _ngcontent-wog-c15=""
-              style="background-color: white; padding: 1px">Comissao*</label></div>
-        </div>
-        <div _ngcontent-wog-c15="" class="col-md-3">
-          <div _ngcontent-wog-c15="" class="inputForm "><input _ngcontent-wog-c15="" name="cep" ngmodel="" required=""
-              type="text" ng-reflect-required="" ng-reflect-name="cep" ng-reflect-model=""
-              class="ng-untouched ng-pristine ng-invalid"><label _ngcontent-wog-c15=""
-              style="background-color: white; padding: 1px">Cep*</label></div>
-        </div>
-        <div _ngcontent-wog-c15="" class="col-md-3">
-          <div _ngcontent-wog-c15="" class="inputForm "><input _ngcontent-wog-c15="" name="endereco" ngmodel=""
-              required="" type="text" ng-reflect-required="" ng-reflect-name="endereco" ng-reflect-model=""
-              class="ng-untouched ng-pristine ng-invalid"><label _ngcontent-wog-c15=""
-              style="background-color: white; padding: 1px">Endereco*</label></div>
-        </div>
-        <div _ngcontent-wog-c15="" class="col-md-3">
-          <div _ngcontent-wog-c15="" class="inputForm "><input _ngcontent-wog-c15="" name="bairro" ngmodel=""
-              required="" type="text" ng-reflect-required="" ng-reflect-name="bairro" ng-reflect-model=""
-              class="ng-untouched ng-pristine ng-invalid"><label _ngcontent-wog-c15=""
-              style="background-color: white; padding: 1px">Bairro*</label></div>
-        </div>
-        <div _ngcontent-wog-c15="" class="col-md-3">
-          <div _ngcontent-wog-c15="" class="inputForm "><input _ngcontent-wog-c15="" name="numero" ngmodel=""
-              required="" type="text" ng-reflect-required="" ng-reflect-name="numero" ng-reflect-model=""
-              class="ng-untouched ng-pristine ng-invalid"><label _ngcontent-wog-c15=""
-              style="background-color: white; padding: 1px">Numero*</label></div>
-        </div>
-        <div _ngcontent-wog-c15="" class="col-md-3">
-          <div _ngcontent-wog-c15="" class="inputForm "><input _ngcontent-wog-c15="" name="cidade" ngmodel=""
-              required="" type="text" ng-reflect-required="" ng-reflect-name="cidade" ng-reflect-model=""
-              class="ng-untouched ng-pristine ng-invalid"><label _ngcontent-wog-c15=""
-              style="background-color: white; padding: 1px">Cidade*</label></div>
-        </div>
-        <div _ngcontent-wog-c15="" class="col-md-3">
-          <div _ngcontent-wog-c15="" class="inputForm "><input _ngcontent-wog-c15="" name="estado" ngmodel=""
-              required="" type="text" ng-reflect-required="" ng-reflect-name="estado" ng-reflect-model=""
-              class="ng-untouched ng-pristine ng-invalid"><label _ngcontent-wog-c15=""
-              style="background-color: white; padding: 1px">Estado*</label></div>
-        </div>
-        <div _ngcontent-wog-c15="" class="col-md-3">
-          <div _ngcontent-wog-c15="" class="inputForm "><input _ngcontent-wog-c15="" name="description" ngmodel=""
-              required="" type="text" ng-reflect-required="" ng-reflect-name="description" ng-reflect-model=""
-              class="ng-untouched ng-pristine ng-invalid"><label _ngcontent-wog-c15=""
-              style="background-color: white; padding: 1px">Descrição*</label></div>
-        </div>
-        <div _ngcontent-wog-c15="" class="col-md-3">
-          <div _ngcontent-wog-c15="" class="inputForm "><input _ngcontent-wog-c15="" name="price" ngmodel="" required=""
-              type="number" ng-reflect-required="" ng-reflect-name="price" ng-reflect-model=""
-              class="ng-untouched ng-pristine ng-invalid"><label _ngcontent-wog-c15=""
-              style="background-color: white; padding: 1px">price*</label></div>
-        </div>
-        <div _ngcontent-wog-c15="" class="col-md-3">
-          <div _ngcontent-wog-c15="" class="inputForm "><input _ngcontent-wog-c15="" name="latitude" ngmodel=""
-              required="" type="text" ng-reflect-required="" ng-reflect-name="latitude" ng-reflect-model=""
-              class="ng-untouched ng-pristine ng-invalid"><label _ngcontent-wog-c15=""
-              style="background-color: white; padding: 1px">Latitude*</label></div>
-        </div>
-        <div _ngcontent-wog-c15="" class="col-md-3">
-          <div _ngcontent-wog-c15="" class="inputForm "><input _ngcontent-wog-c15="" name="longitude" ngmodel=""
-              required="" type="text" ng-reflect-required="" ng-reflect-name="longitude" ng-reflect-model=""
-              class="ng-untouched ng-pristine ng-invalid"><label _ngcontent-wog-c15=""
-              style="background-color: white; padding: 1px">Longitude*</label></div>
-        </div>
+          <button mat-raised-button color="primary" [disabled]="!f.valid">Submit</button>
+        </form>
       </div>
-      <button mat-raised-button color="primary" [disabled]="!f.valid">Submit</button>
-    </form>
+    </div>
   </section>
-</ng-container>
-<ng-template #elseTemplate>
+
+  <!-- </ng-container> -->
+</app-layout>
+<!-- <ng-template #elseTemplate>
   <mat-spinner></mat-spinner>
-</ng-template>
+</ng-template>  -->

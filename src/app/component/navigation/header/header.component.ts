@@ -66,9 +66,9 @@ export class HeaderComponent implements OnInit {
     );
   }
 
-  substr(): string{
-     return this.user.substr(0, 1);
-  }
+  // substr(){
+  //    return this.user.substr(0, 1);
+  // }
 
   sideBarToggle() {
     this.sideBartoggle.emit();

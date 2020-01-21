@@ -19,7 +19,7 @@ export class AsideComponent implements OnInit {
 
     {
       title: 'Inicio',
-      url: '/inicio'
+      url: '/dashboard'
     },
 
     { title: 'Configurações', url: '/configuracoes' },
