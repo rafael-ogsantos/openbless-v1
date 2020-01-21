@@ -26,6 +26,10 @@ export class PropertyService {
     }
 
     addProperty(data) {
+        const dados = localStorage.getItem('userDetails')
+        const obj = JSON.parse(dados);
+
+        data.email = obj.email
         return this._http.post<any>(
             this._siteUiService.getHttpRequestUrl() + "add-property",
             data
