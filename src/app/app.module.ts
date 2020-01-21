@@ -28,6 +28,7 @@ import { ChartsModule } from 'ng2-charts';
 import { AsideComponent } from './component/aside/aside.component';
 import { LayoutComponent } from './component/navigation/layout/layout.component';
 import {LocationStrategy, HashLocationStrategy} from '@angular/common';
+import { CrmComponent } from './crm/crm/crm.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import {LocationStrategy, HashLocationStrategy} from '@angular/common';
     PropertyAddComponent,
     PropertyEditComponent,
     AsideComponent,
-    LayoutComponent
+    LayoutComponent,
+    CrmComponent
   ],
   imports: [
     BrowserModule,

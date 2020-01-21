@@ -1,15 +1,4 @@
-@media (min-width: 900px){
-    .container-dash {
-        width: 100%;
-        max-width: 100em;
-        margin: 0 auto;
-        padding: 0 1.5rem;
-        margin-bottom: 5rem;
-    }
-    * {
-        font-family: 'Roboto' !important;
-    }
-}
+
 
 .mat-style mat-select {
     border: 1px solid #ccc;

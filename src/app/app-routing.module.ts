@@ -19,6 +19,7 @@ import { EditUserComponent } from './component/user/edit-user/edit-user.componen
 import { AllUserComponent } from './component/user/all-user/all-user.component';
 import { ClientSearchComponent } from './component/client/client-search/client-search.component';
 import { PropertyAddComponent } from './component/property/property-add/property-add.component';
+import { CrmComponent } from './crm/crm/crm.component';
 
 const routes: Routes = [
 
@@ -62,6 +63,13 @@ const routes: Routes = [
     path: 'imoveis/buscar',
     component: PropertyComponent,
     data: { title: 'Buscar Imovéis' },
+    canActivate: [AuthGuardService]
+  },
+
+  {
+    path: 'crm',
+    component: CrmComponent,
+    data: { title: 'crm' },
     canActivate: [AuthGuardService]
   },
 
