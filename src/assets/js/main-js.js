@@ -3,8 +3,7 @@ $(document).ready(function() {
     // Google Maps JS
     var directionsDisplay, directionsService, map;
   
-    var userData = JSON.parse(localStorage.getItem('userDetails'));
-    document.getElementById('appMenu').innerHTML = userData.email.substr(0, 1);
+   
 
     // function to oad map
     function initialize() {

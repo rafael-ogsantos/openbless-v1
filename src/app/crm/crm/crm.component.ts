@@ -8,13 +8,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./crm.component.css']
 })
 export class CrmComponent implements OnInit {
-
+seto = null;
   setores = [
     "Financeiro",
     "Marketing",
     "TI",
     "Contábil"
 ];
+
+sectores = {
+   ti: {
+    email: [
+      "ti@admin",
+      "raf@ti"
+    ]
+   },
+
+   marketing: {
+    email: [
+      "mark@admin",
+      "raf@mark"
+    ]
+   },
+
+}
   constructor(private crmService: CrmService) { }
 
   onSubmit(form: NgForm){

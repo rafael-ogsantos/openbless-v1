@@ -55,7 +55,8 @@ export class HeaderComponent implements OnInit {
         //  console.log(userData);
          if(userData.data)
          {
-          this.user = userData.data.name;
+          localStorage.setItem('name', userData.data.name)
+          this.user = localStorage.getItem('name');
          }
         else
         {
@@ -66,9 +67,11 @@ export class HeaderComponent implements OnInit {
     );
   }
 
-  // substr(){
-  //    return this.user.substr(0, 1);
-  // }
+  substr(){
+     const user = localStorage.getItem('userDetails')
+     const obj = JSON.parse(user)
+     return obj.email.substr(0, 1)
+  }
 
   sideBarToggle() {
     this.sideBartoggle.emit();

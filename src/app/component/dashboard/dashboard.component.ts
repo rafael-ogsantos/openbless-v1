@@ -5,6 +5,8 @@ import { Subscription } from 'rxjs';
 import { Label } from 'ng2-charts';
 import { ChartType, ChartOptions, ChartDataSets } from 'chart.js';
 import { subscribeOn } from 'rxjs/operators';
+import { NgForm } from '@angular/forms';
+import { CrmService } from 'src/app/service/crm/crm.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -23,7 +25,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   valorP: number;
   boxes: any;
 
-  constructor(private _authService: AuthService, private _siteUiService: SiteUIService) { 
+  constructor(private _authService: AuthService, private _siteUiService: SiteUIService, private crm: CrmService) { 
     let boxes; boxes = {};
       boxes.valor = {};
         boxes.valor.title = 'Valor a receber';
@@ -80,6 +82,14 @@ private getCalc() {
             valor: 250
         }
     };
+}
+
+onSubmit(form: NgForm){
+  console.log(form.value)
+  this.crm.teste(form.value).subscribe(
+    data => 'sucees',
+    error => 'error'
+  )
 }
   
   ngOnInit() {

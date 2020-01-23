@@ -26,4 +26,11 @@ export class CrmService {
       data
     )
   }
+
+  teste(data){
+    return this._http.post<any>(
+      this._siteUiService.getHttpRequestUrl() + 'teste',
+      data
+    )
+  }
 }

@@ -29,6 +29,7 @@ import { AsideComponent } from './component/aside/aside.component';
 import { LayoutComponent } from './component/navigation/layout/layout.component';
 import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 import { CrmComponent } from './crm/crm/crm.component';
+import { ListEmailsSectorsComponent } from './crm/list-emails-sectors/list-emails-sectors.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { CrmComponent } from './crm/crm/crm.component';
     PropertyEditComponent,
     AsideComponent,
     LayoutComponent,
-    CrmComponent
+    CrmComponent,
+    ListEmailsSectorsComponent
   ],
   imports: [
     BrowserModule,

@@ -35,7 +35,7 @@ position: -webkit-sticky;
     </div>
    
     <button *ngIf="isAuth" class="myAccount" id="appMenu" style="text-transform: uppercase;" [matMenuTriggerFor]="appMenu">
-      
+       {{ substr()}}
     </button>
     <mat-menu #appMenu="matMenu">
       <a mat-menu-item *ngIf="isAuth" routerLink="/user">Perfil</a>
