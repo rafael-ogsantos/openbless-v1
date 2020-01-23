@@ -26,7 +26,8 @@ sectores = {
 
    marketing: {
     email: [
-      
+      "adm@mmarketing",
+      "oi@marketing"
     ]
    },
 
