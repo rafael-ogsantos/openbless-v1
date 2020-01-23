@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./crm.component.css']
 })
 export class CrmComponent implements OnInit {
-seto = null;
+seto: string;
   setores = [
     "Financeiro",
     "Marketing",
@@ -26,8 +26,7 @@ sectores = {
 
    marketing: {
     email: [
-      "mark@admin",
-      "raf@mark"
+      
     ]
    },
 
