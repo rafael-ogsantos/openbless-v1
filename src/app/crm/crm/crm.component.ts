@@ -15,23 +15,9 @@ seto: string;
     "TI",
     "Contábil"
 ];
+sectores: object
+  
 
-sectores = {
-   ti: {
-    email: [
-      "ti@admin",
-      "raf@ti"
-    ]
-   },
-
-   marketing: {
-    email: [
-      "adm@mmarketing",
-      "oi@marketing"
-    ]
-   },
-
-}
   constructor(private crmService: CrmService) { }
 
   onSubmit(form: NgForm){
@@ -40,6 +26,18 @@ sectores = {
        data => console.log(data),
        error => console.log(error)
     )
+  }
+
+  load = async(form: NgForm) =>{
+    await this.crmService.getMails(form.value).subscribe(
+       data => {
+         console.log(data)
+          this.sectores = data.mails
+       },
+       error => console.log(error)
+    )
+
+    console.log(this.sectores)
   }
 
   ngOnInit() {
