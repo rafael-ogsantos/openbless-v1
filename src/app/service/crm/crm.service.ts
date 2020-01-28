@@ -27,6 +27,13 @@ export class CrmService {
     )
   }
 
+  getMails(data){
+    return this._http.post<any>(
+      this._siteUiService.getHttpRequestUrl() + 'get-mails',
+      data
+    )
+  }
+
   teste(data){
     return this._http.post<any>(
       this._siteUiService.getHttpRequestUrl() + 'teste',

@@ -9,7 +9,7 @@
           </div>
 
           <div class="inputForm w-30">
-            <mat-select name="setor" [(ngModel)]="seto" placeholder="Selecione o setor"  required>
+            <mat-select name="setor" [(ngModel)]="seto" (ngModelChange)="load(f)" placeholder="Selecione o setor"  required>
               <mat-option *ngFor="let setor of setores" [value]="setor">
                 {{ setor }}
               </mat-option>
@@ -36,24 +36,27 @@
     </div>
 
 
-    <div class="card">
+    <div class="card" *ngIf="seto" style="height: auto;">
       <div class="header">
         <h5 class="colors-name">Lista de E-mail de cada setor</h5>
       </div>
 
-      
+
       <div class="" *ngIf="seto === 'TI'">
-        <div class="" *ngFor = "let ti of sectores.ti.email">
+        <div class="" *ngFor = "let ti of sectores">
            {{ ti }}
         </div>
       </div>
 
       <div class="" *ngIf="seto === 'Marketing'">
-        <div class="" *ngFor = "let marketing of sectores.marketing.email">
+        <div class="" *ngFor = "let marketing of sectores">
            {{ marketing }}
         </div>
-      </div>
       <!-- <app-list-emails-sectors [list]="sectores"></app-list-emails-sectors> -->
     </div>
+</div>
+    <ng-template #elseTemplate>
+      erro
+    </ng-template>
   </section>
 </app-layout>
