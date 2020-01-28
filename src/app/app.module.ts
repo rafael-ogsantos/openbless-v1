@@ -30,6 +30,7 @@ import { LayoutComponent } from './component/navigation/layout/layout.component'
 import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 import { CrmComponent } from './crm/crm/crm.component';
 import { ListEmailsSectorsComponent } from './crm/list-emails-sectors/list-emails-sectors.component';
+import { MatSnackBar } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { ListEmailsSectorsComponent } from './crm/list-emails-sectors/list-email
     ChartsModule
   ],
   providers: [
+    MatSnackBar,
     {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]

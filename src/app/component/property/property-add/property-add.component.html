@@ -16,12 +16,7 @@
             <input type="hidden" name="userId" [(ngModel)]="userId">
     
             <div class="row">
-              <div class="col-md-3 ">
-                <div class="inputForm">
-                  <input name="title" ngModel placeholder="title" required type="text">
-                </div>
-              </div>
-    
+              
               <div class="col-md-3 ">
                 <div class="inputFormTipo">
                   <mat-select name="negociacao" ngModel placeholder="Selecione a negociação" required>
@@ -163,13 +158,6 @@
     
               <div class="col-md-3">
                 <div class="inputForm ">
-                  <input name="description" ngModel required type="text">
-                  <label class="label">Descrição*</label>
-                </div>
-              </div>
-    
-              <div class="col-md-3">
-                <div class="inputForm ">
                   <input name="price" ngModel required type="number">
                   <label class="label">price*</label>
                 </div>
@@ -188,10 +176,23 @@
                   <label class="label">Longitude*</label>
                 </div>
               </div>
+              
             </div>
+
+            
+              <div class="inputForm ">
+                <textarea name="description" ngModel required type="text"></textarea>
+                <label class="label">Descrição*</label>
+              </div>
+  
+
             <div>
-              <label for="image">Image</label>
-              <input accept="image/*" id="image" name="image" ngModel placeholder="image" type="file" (change)="imageUploaded($event.target.files)">
+
+              <div class="files" style="margin-top: 10px;">
+                <label for="image">Image</label>
+                <input accept="image/*" id="image" name="image" ngModel placeholder="image" type="file" (change)="imageUploaded($event.target.files)">
+              </div>
+              
             </div>
             <br>
           </div>
@@ -200,7 +201,6 @@
       </div>
     </div>
   </section>
-
   <!-- </ng-container> -->
 </app-layout>
 <!-- <ng-template #elseTemplate>

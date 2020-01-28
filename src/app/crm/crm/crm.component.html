@@ -43,14 +43,14 @@
 
       
       <div class="" *ngIf="seto === 'TI'">
-        <div class="" >
-           {{ sectores.ti.email }}
+        <div class="" *ngFor = "let ti of sectores.ti.email">
+           {{ ti }}
         </div>
       </div>
 
       <div class="" *ngIf="seto === 'Marketing'">
-        <div class="" >
-           {{ sectores.marketing.email }}
+        <div class="" *ngFor = "let marketing of sectores.marketing.email">
+           {{ marketing }}
         </div>
       </div>
       <!-- <app-list-emails-sectors [list]="sectores"></app-list-emails-sectors> -->

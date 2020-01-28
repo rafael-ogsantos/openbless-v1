@@ -28,12 +28,15 @@ export class PropertyAddComponent implements OnInit, OnDestroy {
   ];
 
   tipo = [
-    "Apartamento",
-    "Casa",
     "Sobrado",
+    "Edícula",
     "Loft",
-    "Loteamento"
-  ];
+    "Apartamento",
+    "Kitnet",
+    "Coberturas",
+    "Lojas",
+    "Sala"
+];
 
   negociacao = [
     "Venda",
