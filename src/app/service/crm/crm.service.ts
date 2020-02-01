@@ -34,6 +34,20 @@ export class CrmService {
     )
   }
 
+  getPropsPending(){
+    const dados = localStorage.getItem('userDetails')
+    const obj = JSON.parse(dados);
+    const email = {
+      email: obj.email
+    }
+    console.log(email)
+
+    return this._http.post<any>(
+      this._siteUiService.getHttpRequestUrl() + 'get-props-pending',
+      email
+    )
+  }
+
   teste(data){
     return this._http.post<any>(
       this._siteUiService.getHttpRequestUrl() + 'teste',

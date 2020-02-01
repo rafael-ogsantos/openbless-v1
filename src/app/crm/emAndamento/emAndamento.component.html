@@ -1,0 +1,22 @@
+<app-layout>
+  <section class="container-global">
+    <h2 class="colors-name">Crm</h2>
+    <div class="card" style="height: auto;">
+        <div class="box">
+          <div class="header">
+            <h5 class="colors-name">Crm - Em andamento</h5>
+
+            <div class="" *ngIf="props">
+              <div class="" *ngFor = "let ti of props">
+                 {{ ti.id_prop }}
+              </div>
+            </div>
+          </div>
+
+    </div>
+</div>
+    <ng-template #elseTemplate>
+      erro
+    </ng-template>
+  </section>
+</app-layout>

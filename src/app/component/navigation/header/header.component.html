@@ -40,7 +40,7 @@ position: -webkit-sticky;
     <mat-menu #appMenu="matMenu">
       <a mat-menu-item *ngIf="isAuth" routerLink="/user">Perfil</a>
       <a mat-menu-item *ngIf="isAuth" routerLink="/edit-profile">Editar Perfil</a>
-      <a mat-menu-item *ngIf="isClient" routerLink="/client-search-area">Área de pesquisa do cliente</a>
+      <a mat-menu-item *ngIf="isAuth" routerLink="/client-search-area">Área de pesquisa do cliente</a>
       <a mat-menu-item *ngIf="isSuperAdmin" routerLink="/all-user">Todos os usuários</a>
       <a mat-menu-item *ngIf="isSuperAdmin" routerLink="/add-user">Adicionar novo usuário</a>
       <a mat-menu-item (click)="logout()" *ngIf="isAuth">Sair</a>

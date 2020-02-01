@@ -31,6 +31,8 @@ import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 import { CrmComponent } from './crm/crm/crm.component';
 import { ListEmailsSectorsComponent } from './crm/list-emails-sectors/list-emails-sectors.component';
 import { MatSnackBar } from '@angular/material';
+import { Crm2Component } from './crm/novo/crmNovo.component';
+import { CrmemAndamentoComponent } from './crm/emAndamento/emAndamento.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { MatSnackBar } from '@angular/material';
     AsideComponent,
     LayoutComponent,
     CrmComponent,
+    Crm2Component,
+    CrmemAndamentoComponent,
     ListEmailsSectorsComponent
   ],
   imports: [

@@ -66,7 +66,7 @@ export class AsideComponent implements OnInit {
       title: 'CRM',
       url: '/crm',
       sublinks: [
-        { title: 'Novo', url: '/crm/novo' },
+        { title: 'Suporte', url: '/crm/novo' },
         { title: 'Em andamento', url: '/crm/em-andamento' },
         { title: 'Busca', url: '/crm/buscar' }
       ]

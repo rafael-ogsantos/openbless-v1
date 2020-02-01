@@ -1,0 +1,111 @@
+.w-30{
+    width: 30%;
+}
+
+.box .inputForm input,
+textarea,
+mat-select {
+  width: 100%;
+  height: 60px;
+  padding: 12px 5px;
+  font-size: 16px;
+  color: rgb(15, 15, 15);
+  margin-top: 30px;
+  position: relative;
+  border: none;
+  border: 1px solid rgb(211, 211, 211);
+  border-radius: 5px;
+  outline: none;
+  background: transparent;
+}
+
+.box .inputForm{
+	position: relative;
+}
+.box .inputForm input{
+	width: 100%;
+	height: 60px;
+	padding: 12px 5px;
+	font-size: 16px;
+	color: rgb(15, 15, 15);
+	margin-top: 30px;
+	border: none;
+	border: 1px solid  rgb(211, 211, 211);
+	border-radius: 5px;
+	outline: none;
+	background: transparent;
+
+}
+
+.box .inputForm label{
+	position: absolute;
+	top: 38px;
+	left: 10px;
+	padding: 10px 0;
+	font-size: 15px;
+	color: rgb(179, 174, 174);
+	pointer-events: none;
+	transition: .3s;
+
+}
+.box .inputForm label{
+	position: absolute;
+	top: 38px;
+	left: 10px;
+	padding: 10px 0;
+	font-size: 15px;
+	color: rgb(179, 174, 174);
+	pointer-events: none;
+	transition: .3s;
+
+}
+.box .inputForm input:focus ~label,
+.box .inputForm input:valid ~label{
+    background: white;
+    padding: 0;
+	top: 24px;
+	left: 10px;
+	font-size: 13px;
+
+}
+.box .inputForm input:hover{
+	border: 2px solid black;
+	transition: .3s;
+  }
+  .box .inputForm input:focus{
+	  border: 2px solid #584adb;
+  }
+
+  .box .inputForme{
+	position: relative;
+}
+.box .inputForm textarea{
+	width: 100%;
+	padding: 12px 5px;
+	font-size: 16px;
+	color: rgb(15, 15, 15);
+	margin-top: 30px;
+	border: none;
+	border: 1px solid  rgb(211, 211, 211);
+	border-radius: 5px;
+	outline: none;
+	background: transparent;
+
+}
+
+.box .inputForm textarea:focus ~label,
+.box .inputForm textarea:valid ~label{
+    background: white;
+    padding: 0;
+	top: 24px;
+	left: 10px;
+	font-size: 13px;
+
+}
+.box .inputForm textarea:hover{
+	border: 2px solid black;
+	transition: .3s;
+  }
+  .box .inputForm textarea:focus{
+	  border: 2px solid #584adb;
+  }

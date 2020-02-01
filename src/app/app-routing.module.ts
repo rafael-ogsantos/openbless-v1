@@ -20,6 +20,8 @@ import { AllUserComponent } from './component/user/all-user/all-user.component';
 import { ClientSearchComponent } from './component/client/client-search/client-search.component';
 import { PropertyAddComponent } from './component/property/property-add/property-add.component';
 import { CrmComponent } from './crm/crm/crm.component';
+import { Crm2Component } from './crm/novo/crmNovo.component';
+import { CrmemAndamentoComponent } from './crm/emAndamento/emAndamento.component';
 
 const routes: Routes = [
 
@@ -73,6 +75,20 @@ const routes: Routes = [
     canActivate: [AuthGuardService]
   },
 
+  {
+    path: 'crm/novo',
+    component: Crm2Component,
+    data: { title: 'crm' },
+    canActivate: [AuthGuardService]
+  },
+
+  {
+    path: 'crm/em-andamento',
+    component: CrmemAndamentoComponent,
+    data: { title: 'crm' },
+    canActivate: [AuthGuardService]
+  },
+
   // Redireciona /usuarios para /usuarios/cadastrar
 
 
@@ -121,11 +137,11 @@ const routes: Routes = [
     component: AllUserComponent,
     canActivate: [AuthGuardService, SuperAdminRoleGuardService]
   },
-  //   {
-  //     path: "client-search-area",
-  //     component: ClientSearchComponent,
-  //     canActivate: [AuthGuardService, ClientRoleGuardService]
-  //   },
+    {
+      path: "client-search-area",
+      component: ClientSearchComponent,
+      canActivate: [AuthGuardService]
+    },
   //   {
   //     path: "properties",
   //     redirectTo: 'imoveis/cadastrar',
