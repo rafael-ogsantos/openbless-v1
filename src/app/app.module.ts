@@ -33,6 +33,7 @@ import { ListEmailsSectorsComponent } from './crm/list-emails-sectors/list-email
 import { MatSnackBar } from '@angular/material';
 import { Crm2Component } from './crm/novo/crmNovo.component';
 import { CrmemAndamentoComponent } from './crm/emAndamento/emAndamento.component';
+import { tendersPendente } from './component/tenders/pendente/tendersPending.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { CrmemAndamentoComponent } from './crm/emAndamento/emAndamento.component
     AsideComponent,
     LayoutComponent,
     CrmComponent,
+    tendersPendente,
     Crm2Component,
     CrmemAndamentoComponent,
     ListEmailsSectorsComponent

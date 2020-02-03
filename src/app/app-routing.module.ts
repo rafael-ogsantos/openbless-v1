@@ -19,6 +19,7 @@ import { EditUserComponent } from './component/user/edit-user/edit-user.componen
 import { AllUserComponent } from './component/user/all-user/all-user.component';
 import { ClientSearchComponent } from './component/client/client-search/client-search.component';
 import { PropertyAddComponent } from './component/property/property-add/property-add.component';
+import { tendersPendente } from './component/tenders/pendente/tendersPending.component';
 import { CrmComponent } from './crm/crm/crm.component';
 import { Crm2Component } from './crm/novo/crmNovo.component';
 import { CrmemAndamentoComponent } from './crm/emAndamento/emAndamento.component';
@@ -79,6 +80,13 @@ const routes: Routes = [
     path: 'crm/novo',
     component: Crm2Component,
     data: { title: 'crm' },
+    canActivate: [AuthGuardService]
+  },
+
+  {
+    path: 'proposta',
+    component: tendersPendente,
+    data: { title: 'tenders' },
     canActivate: [AuthGuardService]
   },
 

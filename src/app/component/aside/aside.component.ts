@@ -53,6 +53,10 @@ export class AsideComponent implements OnInit {
 
     { title: 'Contratos e Documentos', url: '/contratos-e-documentos' },
 
+    { title: 'Propostas Pendentes', 
+      url: '/proposta' 
+    },
+
     {
       title: 'Financeiro',
       url: '/financeiro',

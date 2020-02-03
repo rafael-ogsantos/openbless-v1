@@ -123,14 +123,14 @@ body {
                 <div class="modal-content" >
                   <div *ngIf="selected">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Modal {{selected.subject}}</h5>
+                      <h5 class="modal-title" id="exampleModalLabel">Modal {{selected.title}}</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
                     <div class="modal-body">
 
-                        {{selected.message}}
+                        {{selected.title}}
                     </div>
                   </div>
                 </div>
@@ -148,17 +148,17 @@ body {
                       <tr>
                         <th scope="col">#</th>
                         <th scope="col">nome</th>
-                        <th scope="col">assunto</th>
-                        <th scope="col">mensagem</th>
+                        <th scope="col">email solicitante</th>
+                        <th scope="col">satus</th>
                         <th scope="col">acoes</th>
                       </tr>
                     </thead>
                     <tbody *ngFor = "let ti of props">
                       <tr>
                         <th scope="row">{{ti.id}}</th>
-                        <td>{{ti.subject}}</td>
-                        <td>{{ti.message}}</td>
-                        <td>{{ti.status}}</td>
+                        <td>{{ti.title}}</td>
+                        <td>{{ti.email_dono}}</td>
+                        <td>PENDENTE</td>
                         <td>
                           <a (click)="set(ti)" data-toggle="modal" data-target="#exampleModal" style="cursor: pointer;">
                             vizualizar
